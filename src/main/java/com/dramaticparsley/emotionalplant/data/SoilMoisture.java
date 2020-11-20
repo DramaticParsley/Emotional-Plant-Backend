@@ -19,6 +19,7 @@ public class SoilMoisture {
   @Temporal(TemporalType.TIMESTAMP)
   private Date timestamp;
   private Integer value;
+  private String  name;
 
   public SoilMoisture(){}
 }

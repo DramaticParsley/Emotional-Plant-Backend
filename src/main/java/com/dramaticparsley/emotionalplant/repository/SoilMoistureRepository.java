@@ -19,9 +19,9 @@ public interface SoilMoistureRepository extends JpaRepository<SoilMoisture, Long
   void delete(SoilMoisture soilMoisture);
 
   @Modifying
-  @Query(value = "insert into soil_moisture (timestamp, value) value(CURRENT_TIMESTAMP(), :input)", nativeQuery = true)
+  @Query(value = "insert into soil_moisture (timestamp, value, name) value(CURRENT_TIMESTAMP(), :sensorValue, :sensorName)", nativeQuery = true)
   @Transactional
-  void saveValue( @Param("input") Integer value) ;
+  void saveValue( @Param("sensorValue") Integer sensorValue, @Param("sensorName") String sensorName) ;
 
 
   SoilMoisture findTopByOrderByIdDesc();
